@@ -3,6 +3,7 @@ import { User } from "../../auth/entities/user.entity";
 import { Client } from "src/clients/entities/client.entity";
 import { CompanyBase } from "../../common/company/entities/company.entity";
 import { Address } from "../../common/address/entities/address.entity";
+import { Contact } from "src/common/contact/entities/contact.entity";
 
 @Entity('owners')
 export class Owner extends CompanyBase {
@@ -27,8 +28,13 @@ export class Owner extends CompanyBase {
     @OneToMany(() => Client, (client) => client.owner)
     clients: Client[];
 
+    // Relación con las direcciones
     @OneToMany(() => Address, (address) => address.owner)
     addresses: Address[];
+
+    // Relación con los contactos
+    @OneToMany(() => Contact, (contact) => contact.owner)
+    contacts: Contact[];
  
     // Antes de insertar
     @BeforeInsert()
