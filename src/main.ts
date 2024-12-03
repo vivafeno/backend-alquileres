@@ -9,6 +9,17 @@ async function bootstrap() {
 
   console.log(`Iniciando la aplicación... ${parseInt(process.env.PORT)} `);
 
+    // Verificar variables de entorno
+    console.log('DB_HOST:', process.env.DB_HOST);
+    console.log('DB_PORT:', process.env.DB_PORT);
+    console.log('DATABASE:', process.env.DATABASE);
+    console.log('DB_USERNAME:', process.env.DB_USERNAME);
+    console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
+    console.log('JWT_SECRET:', process.env.JWT_SECRET);
+    console.log('GLOBAL_PREFIX:', process.env.GLOBAL_PREFIX);
+  
+
+
   // INICIALIZACIÓN DE NEST
   const app = await NestFactory.create(AppModule);
 
